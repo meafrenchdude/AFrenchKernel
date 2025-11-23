@@ -1,0 +1,414 @@
+@font-face {
+  font-family: 'Arial-Bold';
+  src: url('../fonts/Arial-Bold.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arial';
+  src: url('../fonts/Arial.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.sidebar,
+.sidebar * {
+	font-family: 'Arial-Bold', 'Arial', sans-serif;
+}
+
+.sidebar {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 78px;
+	background: #101010;
+	padding: 6px 14px;
+	transition: all 0.5s ease;
+	z-index: 1000;
+}
+
+.sidebar.open,
+.sidebar.open * {
+	font-family: 'Arial-Bold', 'Arial', sans-serif;
+}
+
+.sidebar.open {
+	width: 250px;
+}
+
+.sidebar .logo-details {
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+}
+
+.sidebar .logo-details .logo_name {
+	color: white;
+	font-size: 20px;
+	font-weight: 600;
+	opacity: 0;
+	transition: all 0.5s ease;
+	pointer-events: none;
+	user-select: none;
+	margin-left: auto;
+	margin-right: 20px;
+}
+
+.sidebar.open .logo-details,
+.sidebar.open .logo-details .logo_name {
+	opacity: 1;
+	pointer-events: auto;
+	user-select: auto;
+}
+
+.sidebar .logo-details #btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    position: static;
+    font-size: 22px;
+    text-align: center;
+    cursor: pointer;
+	transition: all 0.5s ease;
+	margin-right: 2px;
+}
+
+.sidebar.open .logo-details #btn{
+	text-align: center;
+}
+
+.sidebar i{
+	color: white;
+	height: 60px;
+	min-width: 50px;
+	font-size: 28px;
+	text-align: center;
+	line-height: 60px;
+}
+
+.sidebar li {
+	position: relative;
+	list-style: none;
+}
+
+.sidebar li i {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    border-radius: 12px;
+}
+
+.sidebar li a{
+display: flex;
+height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    background: transparent;	
+}
+
+.sidebar li a .links_name {
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+}
+
+.sidebar li a:hover .links_name,
+.sidebar li a:hover i {
+    transition: all 0.5s ease;
+    color: #ffe200;
+}
+
+.sidebar.open li a .links_name {
+    opacity: 1;
+    pointer-events: auto;
+	user-select: none;
+}
+
+.sidebar li .tooltip {
+    position: absolute;
+	top: 50%;
+	left: calc(100% + 15px);
+    background: #101010;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: 0s;
+}
+
+.sidebar li:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+	transition: all 0.4s ease;
+	transform: translateY(-50%);
+}
+
+.sidebar.open li .tooltip {
+    display: none;
+}
+
+.page-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+	z-index: 900;
+}
+
+.sidebar.open + .page-overlay {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.sidebar li.sub-item a {
+  padding-left: 50px;
+}
+
+.sidebar li.sub-item a .sub_links_name {
+	color: white;
+    font-size: 13px;
+	font-weight: 700;
+	opacity: 0;
+	pointer-events: none;
+	transition: 0.4s;
+}
+
+.sidebar.open li.sub-item a .sub_links_name {
+	opacity: 1;
+	pointer-events: auto;
+	user-select: none;
+}
+
+.sidebar.open li.sub-item a:hover .sub_links_name {
+	transition: all 0.5s ease;
+	color: #ffe200;
+}
+
+body {
+	background: #181101;
+	color: white;
+	min-height: 100vh;
+	margin: 0;
+	font-family: 'Arial', 'Arial-Bold', sans-serif;
+}
+
+.page_logo img {
+  display: block;
+  margin: auto;
+  margin-top: 40px;
+  width: 300px;
+  margin-bottom: 50px;
+}
+
+.device-title {
+	font-size: 30px;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.device {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.device ul {
+	list-style: none;
+	padding: 0;
+}
+
+.device li {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+
+.device li img {
+	width: 400px;
+	height: 400px;
+	object-fit: contain;
+	margin-bottom: 20px;
+}
+
+.device-button {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 16px;
+	background: rgba(255, 226, 0, 0.1);
+	border: 1px solid #ffe200;
+	color: #ffe200;
+	text-decoration: none;
+	border-radius: 999px;
+	font-size: 20px;
+	font-family: 'Arial-Bold', 'Arial', sans-serif;
+	transition: all 0.3s ease;
+}
+
+.device-button:hover {
+	background: rgba(255, 226, 0, 0.2);
+	transform: translateY(-1px);
+}
+
+.device-button__icon {
+	font-size: 16px;
+}
+
+.downloads {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.downloads h1 {
+	font-size: 30px;
+	margin-bottom: 30px;
+}
+
+.downloads p {
+	font-size: 18px;
+	margin-bottom: 40px;
+	color: #ccc;
+}
+
+.download-section {
+	margin-bottom: 40px;
+	padding: 20px;
+	background: rgba(255, 226, 0, 0.05);
+	border: 1px solid rgba(255, 226, 0, 0.2);
+	border-radius: 12px;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.download-section h2 {
+	font-size: 24px;
+	margin-bottom: 20px;
+	color: #ffe200;
+}
+
+.downloads ul {
+	list-style: none;
+	padding: 0;
+}
+
+.downloads li {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 20px;
+	font-size: 18px;
+}
+
+.downloads li .button-group {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.downloads li img {
+	width: 100px;
+	height: 100px;
+	object-fit: contain;
+	margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+	body {
+        padding-left: 60px;
+    }
+	
+	.sidebar {
+		width: 60px;
+		padding: 6px 8px;
+	}
+
+	.sidebar.open {
+		width: 200px;
+	}
+
+	.sidebar i {
+		min-width: 40px;
+		font-size: 22px;
+	}
+
+	.sidebar .logo-details .logo_name {
+		font-size: 16px;
+	}
+
+	.page_logo img {
+		margin-top: 20px;
+		width: 200px;
+		margin-bottom: 40px;
+	}
+
+	.device-title {
+		font-size: 20px;
+	text-align: center;
+	margin-bottom: 50px;
+	padding: 0 15px;
+	}
+
+	.device li img {
+	max-width: 300px;
+	max-height: 300px;
+	object-fit: contain;
+	}
+
+	.device-button {
+	font-size: 14px;
+	padding: 6px 12px;
+	}
+
+	.downloads li img {
+		max-width: 80px;
+		max-height: 80px;
+    }
+
+	.downloads .device-button {
+		font-size: 12px;
+		padding: 6px 10px;
+	}
+
+	.downloads .button-group {
+		gap: 8px;
+	}
+
+	.downloads .download-section {
+		padding: 15px;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}
