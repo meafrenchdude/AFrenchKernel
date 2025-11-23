@@ -5,10 +5,22 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Arial';
+  src: url('../fonts/Arial.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
 *{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+.sidebar,
+.sidebar * {
+	font-family: 'Arial-Bold', 'Arial', sans-serif;
 }
 
 .sidebar {
@@ -21,6 +33,11 @@
 	padding: 6px 14px;
 	transition: all 0.5s ease;
 	z-index: 1000;
+}
+
+.sidebar.open,
+.sidebar.open * {
+	font-family: 'Arial-Bold', 'Arial', sans-serif;
 }
 
 .sidebar.open {
@@ -199,7 +216,7 @@ body {
 	color: white;
 	min-height: 100vh;
 	margin: 0;
-	font-family: 'Arial-Bold', sans-serif;
+	font-family: 'Arial', 'Arial-Bold', sans-serif;
 }
 
 .page_logo img {
