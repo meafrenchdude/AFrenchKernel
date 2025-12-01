@@ -343,6 +343,41 @@ body {
 	height: 100px;
 	object-fit: contain;
 	margin-bottom: 10px;
+.footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px 0;
+  background: linear-gradient(to bottom, #1811014d, #ffe20033);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+}
+
+.social-link img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 @media (max-width: 600px) {
@@ -411,4 +446,7 @@ body {
 		margin-left: 10px;
 		margin-right: 10px;
 	}
+  .footer p {
+    font-size: 15px;
+  }
 }
