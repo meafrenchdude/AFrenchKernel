@@ -397,6 +397,128 @@ body {
   filter: brightness(0) invert(1);
 }
 
+.snow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 4000;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  background: #ffffff;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
+  animation-name: snowFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes snowFall {
+  0% {
+    transform: translate3d(0, -100px, 0);
+  }
+  100% {
+    transform: translate3d(20px, 110vh, 0);
+  }
+}
+
+body.easter-egg-theme {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: radial-gradient(circle at top, #1a0b2e, #050816 50%, #000000 100%);
+  color: #f9f4ff;
+}
+
+body.easter-egg-theme .device-button,
+body.easter-egg-theme .download-section,
+body.easter-egg-theme .downloads li,
+body.easter-egg-theme .sidebar,
+body.easter-egg-theme .thanking-section,
+body.easter-egg-theme .footer {
+  border-radius: 24px;
+}
+
+body.easter-egg-theme .device-button {
+  font-size: 18px;
+}
+
+body.easter-egg-theme .downloads h1,
+body.easter-egg-theme .device-title h1 {
+  font-size: 34px;
+  letter-spacing: 0.08em;
+}
+
+body.easter-egg-theme .download-section h2 {
+  font-size: 26px;
+}
+
+.easter-egg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  pointer-events: none;
+  background: #000000;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: easterEggReveal 5s ease-in-out forwards;
+}
+
+.easter-egg-overlay img {
+  max-width: 60%;
+  max-height: 60%;
+  object-fit: contain;
+  opacity: 0;
+  animation: easterEggImage 5s ease-in-out forwards;
+}
+
+@keyframes easterEggReveal {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes easterEggImage {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  20% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+}
+
 @media (max-width: 600px) {
   body {
     padding-left: 60px;
