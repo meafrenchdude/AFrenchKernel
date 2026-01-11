@@ -253,7 +253,7 @@ body {
   font-size: 20px;
 }
 
-.device li img {
+.device li > img {
   width: 400px;
   height: 400px;
   object-fit: contain;
@@ -273,6 +273,11 @@ body {
   font-size: 20px;
   font-family: 'Arial-Bold', 'Arial', sans-serif;
   transition: all 0.3s ease;
+}
+
+.device-button img {
+  width: 20px;
+  height: 20px;
 }
 
 .device-button:hover {
@@ -566,6 +571,11 @@ body.easter-egg-theme .download-section h2 {
   .device-button {
     font-size: 14px;
     padding: 6px 12px;
+  }
+
+  .device-button img {
+    width: 14px;
+    height: 14px;
   }
 
   .downloads li img {
